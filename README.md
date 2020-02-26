@@ -100,7 +100,7 @@ services:
 所需文件和文件结构如下:  
 ![文件路径](gitlab-runner.png)  
 其中config目录是安装完成的挂载卷配置文件
-environment下为编译环境所需文件,需要自己准备,其中daemon.json为docker阿里镜像加速配置,即下载项目后编译、打包、运行环境  
+environment下为编译环境所需文件,需要自己准备,即下载项目后编译、打包、运行环境,其中daemon.json为docker阿里镜像加速配置  
 3.执行安装
 ```shell script
 docker-compose up -d
