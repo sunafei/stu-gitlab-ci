@@ -1,0 +1,21 @@
+stages:
+  - build
+  - run
+  - clean
+build:
+  stage: build
+  script:
+    - /usr/local/maven/apache-maven-3.6.1/bin/mvn package
+    - cp target/stu-gitlab-runner-0.0.1-SNAPSHOT.jar docker
+    - cd docker
+    - docker build -t sunafei/gitlab-runner .
+run:
+  stage: run
+  script:
+    - cd docker
+    - docker-compose down
+    - docker-compose up -d
+clean:
+  stage: clean
+  script:
+    - docker rmi $(docker images -q -f dangling=true)

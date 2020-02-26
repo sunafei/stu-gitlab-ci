@@ -1,0 +1,8 @@
+version: '3.1'
+services:
+  stu-gitlab-runner:
+    restart: always
+    image: sunafei/gitlab-runner
+    container_name: stu-gitlab-runner
+    ports:
+      - 8088:8088
